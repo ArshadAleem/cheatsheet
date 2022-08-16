@@ -1,0 +1,112 @@
+#Module load/unload
+
+# list all loaded modules
+lsmod
+
+# load a module to kernel
+insmod <path of module>
+
+#remove a loaded module
+rmmod
+
+# load a module along with all dependencies
+modprobe
+
+###### KERNEL BASICS ######
+
+# know current kernel being used
+uname -a 
+
+# just print kernel version
+uname -r
+
+# modules reside in /lib/modules
+
+# Official location of kernel is kernel.org
+
+# Extract a tar.xz file with linux to figure out extraction algorithm:
+tar xf <file path>
+
+# Commands for hardware info
+lshw
+lspci
+lsusb
+lsbk
+lscpu
+lsdev
+
+# way to organize a command output in vim like format
+<command> | less
+
+# list of system calls is available in
+<kernel cource>/include/uapi/asm-generic/unistd.h
+
+# comand to count lines in a command output:
+<command> | wc -l
+
+# count lines in a file:
+wc -l <file path>
+
+# return value of sytem calls is -1 in case of errors and errno is set to corresponding error code.
+
+## VIRTUAL FS ##
+
+# know PID of the processes:
+ps -l
+
+# process directory is in /proc filesystem
+/proc/<PID>
+
+# executable being run in a PID is symlinked here:
+/proc/<PID>/exe
+
+# file descriptors of a processs are present here:
+/proc/<PID>/fd/
+
+# command to know device file of current window of terminal:
+tty
+
+# command to identify system calls summary of a <command>
+strace -c <command>
+
+# Command to check memory stats:
+free
+
+# command to enter root shell:
+sudo bash
+
+# print everything inside /proc filesystem in form of strings:
+sudo sysctl -a
+
+# create your own character device file (pickle) with major number 1 and minor number 2
+mknod pickle c 1 2
+
+## LOADABLE KERNEL MODULES ##
+
+# To view line numbers in vim, type this:
+:set number
+
+# to view top entries of a command output:
+<command> | head
+
+# get latest loaded modules:
+lsmod | head
+
+# make a command run in background so that you can use the terminal:
+gedit abc
+ctrl + Z
+bg
+#to bring it to foreground:
+fg
+
+# all grub commands can be found through this command:
+man -k grub
+
+# commandline parameters of kernel are set in this file:
+/proc/cmdline
+
+# to find location of a command:
+which <command>
+
+# To find type of file
+file <path>
